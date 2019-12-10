@@ -2,6 +2,9 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
 
+const Jono = <img src="jono.png" alt="Jono"></img>
+const Lachie = <img src="lachie.png" alt="Lachie"></img>
+
 const Square = (props) => {
       return (
         <button 
@@ -56,6 +59,8 @@ const Square = (props) => {
         };
     }
 
+
+
     handleClick(i) {
         const history = this.state.history.slice(0,
             this.state.stepNumber + 1);
@@ -64,7 +69,7 @@ const Square = (props) => {
         if (calculateWinner(squares) || squares[i]){
             return;
         }
-        squares[i] = this.state.xIsNext ? 'X' : 'O';
+        squares[i] = this.state.xIsNext ? Jono : Lachie;
         this.setState({
             history: history.concat([{
                 squares: squares,
@@ -99,10 +104,10 @@ const Square = (props) => {
 
         let status;
         if (winner) {
-            status = `Winner: ${winner}`;
+            status = `Winner: ${winner.props.alt}`;
         } else {
             status = 'Next player: ' + 
-         (this.state.xIsNext ? 'X' : 'O');
+         (this.state.xIsNext ? "Jono" : "Lachie");
         }   
 
       return (
